@@ -2,7 +2,7 @@ import { html, nothing } from '../../node_modules/lit-html/lit-html.js';
 import { searchFormTemplate } from '../views/search.js';
 const userLinks = html``;
 const guestLinks = html``;
-
+import logo from '../../images/logo.png';
 export const navigationTemplate = (ctx) => html`
     <nav
         @click=${burgerMenu}
@@ -11,9 +11,9 @@ export const navigationTemplate = (ctx) => html`
         aria-label="main navigation"
     >
         <div class="navbar-brand" style="margin: 0 10px;">
-            <figure class="image is-64x64">
+            <figure class="image is-64x64 is-square">
                 <a href="/">
-                    <img src="/images/logobigg.png" />
+                    <img src=${logo} />
                 </a>
             </figure>
 

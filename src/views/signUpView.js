@@ -4,6 +4,7 @@ import { errorTemplate } from '../templates/errorTemplate';
 import { formDisplayError } from '../utils/formErrorDisplay';
 import { formFieldIsEmptyValidator } from '../utils/formFieldsValidator';
 import { imageURLIsNotCorrectValidator } from '../utils/imageUrlValidator';
+import defaultImage from '../../images/default-image.png';
 
 const signUpTemplate = (ctx) => html`
     <section class="section container sign-up">
@@ -89,7 +90,7 @@ async function onSignUp(ev, ctx) {
         user.displayName = formData.username;
         // user.photoURL = formData.photo;
         
-        user.photoURL = formData.photo == "" ? '/images/default-image.jpg' : formData.photo
+        user.photoURL = formData.photo == "" ? defaultImage : formData.photo
 
         // NOTE: Creates 'users' collection in the database with more general fields like profile image and such
 
