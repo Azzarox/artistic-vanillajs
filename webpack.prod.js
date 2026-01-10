@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 const common = require('./webpack.common');
@@ -11,7 +11,8 @@ module.exports = merge(common, {
     optimization: {
         // When using OptimizeCssAssetsPlugin it overwrites the default JS Minifier and optimizer (which is the terser-webpack-plugin)
         // So we need to add it manually again
-        minimizer: [new OptimizeCssAssetsPlugin(), new TerserPlugin()],
+        minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
+        minimize: true,
     },
     plugins: [
         new HtmlWebpackPlugin({
