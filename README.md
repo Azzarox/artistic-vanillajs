@@ -1,4 +1,4 @@
-# JS-SPA-FrontEnd-Project
+# Artistic
 
 Small Front-End project which is a Single Page Application and uses Firebase for authentication and database.
 
