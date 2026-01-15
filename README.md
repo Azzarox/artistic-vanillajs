@@ -1,57 +1,100 @@
 # Artistic
 
-Small Front-End project which is a Single Page Application and uses Firebase for authentication and database.
+A photo sharing Single Page Application built with **Vanilla JavaScript** and **lit-html** for templating, featuring user authentication, real-time database operations, and full CRUD functionality—all without relying on a front-end framework.
 
-## How to use
+**[Live Demo](https://fir-project-39721.web.app/)**
 
-Go to: https://fir-project-39721.web.app/
+---
 
-Email: `test@test.com`
+## Requirements
 
-Password: `tester`
+- Node.js
+- Firebase CLI (`npm install -g firebase-tools`)
 
-## Project overview:
+---
 
-1. Sign-Up
-2. Sign-In
-3. View all created photos from other users and you respectively
-4. Create a photo
-5. Edit a photo
-6. Delete a photo
-7. Comment a photo
-8. Like a photo
-9. Search photo
-10. View your profile
-11. Edit your profile
-12. View your created photos in the profile page
+## Quick Start
 
-- 1, 2, 3 and 9 - Can be done with guest account
-- 5 and 6 - Can be done only if **YOU ARE** the creator of the photo
-- 7 and 8 - Can be done only if you are **NOT** the creator of the photo
+```bash
+# Clone repository
+git clone <repository-url>
+cd artistic-vanillajs
 
-***The Project is responsive***
+# Install dependencies
+npm install
 
-***Price functionality is currently not working due to restrictions in the back-end***
+# Start development server
+npm start
+```
 
-## Developing Instructions
+### Demo Credentials
 
-1. Run `npm start` to start the lite-server for dynamic changes while developing.
-2. Run `npm run watch` to update the `dist` on every change in the code.
-3. Run `firebase deploy` to deploy changes. 
+| Email            | Password |
+|------------------|----------|
+| `test@test.com`  | `tester` |
 
-### Notes about Developing
+---
 
-1. If want to add a new `.css` file. After creating it, it needs to be added to the `app.js` as an import so the webpack sees it.
-2. `npm run build` builds the project with optimizations and minifying
-3. Other commands can be found under `scripts` in the `package.json` file.
+## Tech Stack
 
-### Dependencies and packages used
+- JavaScript (ES6+)
+- lit-html
+- page.js
+- Firebase (Authentication, Firestore)
+- Algolia (instantsearch.js)
+- Webpack
 
-1. Webpack as a module bundler.
-2. Firebase as a backend as a service
-   - Firebase Authentication
-   - Firebase Firestore Database
-   - Algolia Search (instantsearch.js) Extension to Firestore for a searching functionality
-3. `lit-html` as a templating engine.
-4. `page.js` as a router.
-5. Other dependencies and plugins for webpack which could be found in the `package.json` file.
+---
+
+## Project Structure
+
+```
+src/
+├── views/        # Page components (catalog, details, profile, auth, etc.)
+├── templates/    # Reusable lit-html templates (layout, navigation, modals)
+├── middlewares/  # Route guards and authentication checks
+├── utils/        # Helper functions (validation, error handling)
+├── app.js        # Application entry point and route definitions
+└── searchUI.js   # Algolia search configuration
+```
+
+---
+
+## Scripts
+
+- `npm start` – Start lite-server for development
+- `npm run watch` – Watch mode, rebuild on file changes
+- `npm run build` – Production build (optimized & minified)
+- `npm run deploy` – Build and deploy to Firebase Hosting
+
+---
+
+## Features
+
+- **User Authentication** – Sign-up/sign-in with Firebase Auth
+- **Photo Management** – Create, edit, and delete photos
+- **Social Interactions** – Like and comment system with ownership-based permissions
+- **Search** – Full-text search powered by Algolia
+- **User Profiles** – Editable profiles with personal galleries
+- **Responsive Design** – Works across all device sizes
+
+---
+
+## Permissions
+
+| Action           | Guest | Authenticated | Owner Only |
+|------------------|:-----:|:-------------:|:----------:|
+| Browse photos    | Yes   | Yes           | Yes        |
+| Search           | Yes   | Yes           | Yes        |
+| Create photo     | —     | Yes           | Yes        |
+| Edit/Delete photo| —     | —             | Yes        |
+| Like photo       | —     | Yes           | —          |
+| Comment          | —     | Yes           | —          |
+| Edit profile     | —     | Yes           | Yes        |
+
+---
+
+## Notes
+
+- New `.css` files must be imported in `app.js` for Webpack to include them in the bundle
+- Price functionality is currently disabled due to backend restrictions
